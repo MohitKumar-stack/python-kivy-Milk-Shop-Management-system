@@ -1,0 +1,329 @@
+#: kivy 1.10.0
+#: import TreeViewLabel kivy.uix.treeview.TreeViewLabel
+<Main_Window>:   
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba:(.06,.45,.45,1)
+                Rectangle:
+                    size: self.size
+                    pos:  self.pos
+            size_hint_y:None
+            height:100
+            Label:
+                text:""
+                bold:True
+                font_size:20
+                sixe_hint_X:.6
+            Label:
+                text:"SURBHI"
+                bold:True
+                font_size:40
+                sixe_hint_X:.2
+            Label:
+
+                text:"DAIRY"
+                background_color:rgba(.06,.45,.45,1)
+                bold:True
+                font_size:40
+                sixe_hint_X:.2
+              
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_x:None
+            width:150
+            spacing:5
+            canvas.before:
+                Color:
+                    rgba:(.06,.45,.45,1)
+                Rectangle:
+                    size: self.size
+                    pos:  self.pos
+            Button:
+                text:"ENTRY"
+                background_color:(.06,.45,.45,1)
+                font_size:20
+                size_hint_y:None
+                height:50
+                on_press:root.manager.current ='Entry_window'
+            Button:
+                text:"SEE"
+                height:30
+                size_hint_y:None
+                height:50
+                background_color:(.06,.45,.45,1)
+                font_size:20
+                on_press:root.manager.current ='See_window'
+            Button:
+                text:"ADD"  
+                background_color:(.06,.45,.45,1)
+                font_size:20
+                size_hint_y:None
+                height:50
+                height:30
+                on_press:root.manager.current ='Crate_Window'      
+        # BoxLayout:
+            
+<See_window>: 
+    BoxLayout:
+        BoxLayout:  
+            orientation:'vertical'
+            size_hint_x:None
+            width:200 
+            canvas.before:
+                Color:
+                    rgba:(.06,.45,.45,1)
+                Rectangle:
+                    size: self.size
+                    pos:  self.pos
+            spacing:10        
+            TextInput:
+                orientation:'vertical'
+                id:See_data_text
+                hint_text:"SEARCH TEXT"
+                multiline:False
+                size_hint_y:None
+                height:40 
+                size_hint_x:None
+                width:200   
+            Button:    
+                text:"SEARCH"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.See_data_text()
+            Button:    
+                text:"HOME"
+                # background_normal: '20170508_110054.jpg'
+                # background_down: '20170508_110054.jpg'
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.manager.current ='Main_Window'
+            Button:
+                text:"TODAY"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.Today_Entry()   
+            Button:    
+                text:"U-LIST"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.user_list()
+            Button:
+                text:"PRINT"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.print()
+            Button:
+                text:"EDIT"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.edit()
+            Button:
+                text:"DELETE"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.delete() 
+        BoxLayout:
+            orientation: "vertical"           
+            GridLayout:
+                size_hint: 1, None
+                size_hint_y: None
+                height: 25
+                cols: 7
+                font_size:20
+                Label:
+                    text: "ID"
+                Label:
+                    text: "DATE"
+                Label:
+                    text: "NAME"
+                Label:
+                    text: "FAT"
+                Label:
+                    text: "QUANTITY"
+                Label:
+                    text: "RATE"
+                Label:
+                    text: "TOTAL"       
+            TextInput:
+                id:text_area_today_database
+                bold:True
+                font_size:20
+<Crate_Window>: 
+    BoxLayout:
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_x:None
+            width:150
+            spacing:5
+            canvas.before:
+                Color:
+                    rgba:(.06,.45,.45,1)
+                Rectangle:
+                    size: self.size
+                    pos:  self.pos
+            Button:
+                text:"HOME"
+                background_color:(.06,.45,.45,1)
+                size_hint_y:None
+                height:50
+                font_size:20
+                on_press:root.manager.current ='Main_Window'
+            Button:
+                text:"NEW"
+                background_color:(.06,.45,.45,1)
+                size_hint_y:None
+                height:50
+                font_size:20
+                on_press:root.new()    
+            Button:
+                text:"CREATE"
+                background_color:(.06,.45,.45,1)
+                size_hint_y:None
+                height:50
+                font_size:20
+                on_press:root.Create_new()   
+            Button:
+                text:"DELETE"
+                background_color:(.06,.45,.45,1)
+                size_hint_y:None
+                height:50
+                font_size:20
+                on_release:root.Delete_crete()       
+        BoxLayout:
+            orientation:'vertical'
+            spacing:20
+            TextInput:
+                id:Serch_text
+                hint_text:"ENTER NAME"
+                multiline:False
+                size_hint_y:None
+                height:40 
+                size_hint_x:None
+                width:300   
+        
+            TextInput:
+                id:Address_text
+                hint_text:"ENTER ADDRESS"
+                multiline:False
+                size_hint_y:None
+                height:40 
+                size_hint_x:None
+                width:300   
+
+            TextInput:
+                id:ph_text
+                hint_text:"ENTER MOBILE"
+                multiline:False
+                size_hint_y:None
+                height:40 
+                size_hint_x:None
+                width:300   
+
+                
+<Entry_window>:
+    BoxLayout:
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_x:None
+            width:150
+            spacing:20
+            font_size:30
+            canvas.before:
+                Color:
+                    rgba:(.06,.45,.45,1)
+                Rectangle:
+                    size: self.size
+                    pos:  self.pos    
+            Button:
+                text:"HOME"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.manager.current ='Main_Window'
+            Button:
+                text:"NEW"   
+                background_color:(.06,.45,.45,1)
+                size_hint_y:None
+                height:50
+                font_size:20
+                on_press:root.New()  
+            Button:
+                text:"SAVE"
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)  
+                on_press:root.Save()    
+            Button:
+                text:"TOTAL" 
+                size_hint_y:None
+                height:50
+                font_size:20
+                background_color:(.06,.45,.45,1)
+                on_press:root.Total()     
+
+        BoxLayout:
+
+            orientation:'vertical'
+            spacing:30
+            padding:50
+            bold:True
+            TextInput:
+                id:user_text
+                hint_text:"ENTER NAME"
+                multiline:False
+                focus:True
+                size_hint_y:None
+                height:40
+                size_hint_x:None
+                width:300
+            
+            TextInput:
+                id:Fat_text
+                hint_text:"ENTER FAT"
+                multiline:False
+                size_hint_y:None
+                height:40 
+                size_hint_x:None
+                width:300   
+            TextInput:
+                id:Quantity_text
+                hint_text:"ENTER QUNATITY"
+                multiline:False
+                size_hint_y:None
+                height:40 
+                size_hint_x:None
+                width:300
+            TextInput:
+                id:Rate_text
+                hint_text:"ENTER RATE"
+                multiline:False
+                size_hint_y:None
+                height:40
+                size_hint_x:None
+                width:300
+            TextInput:
+                id:Total_text
+                multiline:False
+                size_hint_y:None
+                height:40
+                size_hint_x:None
+                width:300
